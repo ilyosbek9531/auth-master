@@ -21,13 +21,13 @@ module.exports = {
           `${result.email} is already been registered`
         );
 
-      // const user = new User(result)
-      // const savedUser = await user.save()
+      const user = new User(result);
+      const savedUser = await user.save();
       // const accessToken = await signAccessToken(savedUser.id)
       // const refreshToken = await signRefreshToken(savedUser.id)
 
       // res.send({ accessToken, refreshToken })
-      res.send("register");
+      res.json(savedUser);
     } catch (error) {
       if (error.isJoi === true) error.status = 422;
       next(error);
