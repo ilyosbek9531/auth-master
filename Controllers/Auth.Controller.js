@@ -20,14 +20,15 @@ module.exports = {
         throw createError.Conflict(
           `${result.email} is already been registered`
         );
+      else {
+        const user = new User(result);
+        const savedUser = await user.save();
+        const accessToken = await signAccessToken(savedUser.id);
+        // const refreshToken = await signRefreshToken(savedUser.id)
 
-      const user = new User(result);
-      const savedUser = await user.save();
-      // const accessToken = await signAccessToken(savedUser.id)
-      // const refreshToken = await signRefreshToken(savedUser.id)
-
-      // res.send({ accessToken, refreshToken })
-      res.json(savedUser);
+        // res.send({ accessToken, refreshToken })
+        res.json({ accessToken });
+      }
     } catch (error) {
       if (error.isJoi === true) error.status = 422;
       next(error);
