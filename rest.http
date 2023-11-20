@@ -6,7 +6,7 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "email": "jhondoe@gmail.com",
+  "username": "jhondoe@gmail.com",
   "password": "1234"
 }
 
@@ -16,6 +16,6 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-  "email": "yourstruly264@gmail.com",
+  "username": "yourstruly264@gmail.com",
   "password": "1234"
 }
