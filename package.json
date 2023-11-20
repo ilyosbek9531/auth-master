@@ -1,8 +1,8 @@
 {
-  "name": "Auth_tutorial",
+  "name": "Union_admin",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
