@@ -13,6 +13,10 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/books", (req, res) => {
+  res.json("this is books");
+});
+
 app.get("/", verifyAccessToken, async (req, res, next) => {
   res.send("Hello from express.");
 });
