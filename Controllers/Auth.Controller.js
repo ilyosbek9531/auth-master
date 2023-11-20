@@ -20,14 +20,13 @@ module.exports = {
         throw createError.Conflict(
           `${result.email} is already been registered`
         );
-      else {
-        const user = new User(result);
-        const savedUser = await user.save();
-        // const accessToken = await signAccessToken(savedUser.id);
-        const refreshToken = await signRefreshToken(savedUser.id);
 
-        res.json({ refreshToken });
-      }
+      const user = new User(result);
+      const savedUser = await user.save();
+      const accessToken = await signAccessToken(savedUser.id);
+      const refreshToken = await signRefreshToken(savedUser.id);
+
+      res.send({ accessToken, refreshToken });
     } catch (error) {
       if (error.isJoi === true) error.status = 422;
       next(error);
@@ -47,7 +46,7 @@ module.exports = {
       const accessToken = await signAccessToken(user.id);
       const refreshToken = await signRefreshToken(user.id);
 
-      res.json({ accessToken, refreshToken });
+      res.send({ accessToken, refreshToken });
     } catch (error) {
       if (error.isJoi === true)
         return next(createError.BadRequest("Invalid Username/Password"));
@@ -63,7 +62,7 @@ module.exports = {
 
       const accessToken = await signAccessToken(userId);
       const refToken = await signRefreshToken(userId);
-      res.json({ accessToken: accessToken, refreshToken: refToken });
+      res.send({ accessToken: accessToken, refreshToken: refToken });
     } catch (error) {
       next(error);
     }
@@ -80,7 +79,7 @@ module.exports = {
           throw createError.InternalServerError();
         }
         console.log(val);
-        res.jsonStatus(204);
+        res.sendStatus(204);
       });
     } catch (error) {
       next(error);
