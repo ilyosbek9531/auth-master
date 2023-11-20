@@ -23,10 +23,10 @@ module.exports = {
       else {
         const user = new User(result);
         const savedUser = await user.save();
-        const accessToken = await signAccessToken(savedUser.id);
-        // const refreshToken = await signRefreshToken(savedUser.id);
+        // const accessToken = await signAccessToken(savedUser.id);
+        const refreshToken = await signRefreshToken(savedUser.id);
 
-        res.json({ accessToken });
+        res.json({ refreshToken });
       }
     } catch (error) {
       if (error.isJoi === true) error.status = 422;
