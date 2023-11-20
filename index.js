@@ -18,7 +18,7 @@ app.get("/books", (req, res) => {
 });
 
 app.get("/", verifyAccessToken, async (req, res, next) => {
-  res.send("Hello from express.");
+  res.json("Hello from express.");
 });
 
 app.use("/auth", AuthRoute);
@@ -29,7 +29,7 @@ app.use(async (req, res, next) => {
 
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  res.send({
+  res.json({
     error: {
       status: err.status || 500,
       message: err.message,

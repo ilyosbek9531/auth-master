@@ -24,10 +24,9 @@ module.exports = {
         const user = new User(result);
         const savedUser = await user.save();
         const accessToken = await signAccessToken(savedUser.id);
-        // const refreshToken = await signRefreshToken(savedUser.id)
+        const refreshToken = await signRefreshToken(savedUser.id);
 
-        // res.send({ accessToken, refreshToken })
-        res.json({ accessToken });
+        res.json({ accessToken, refreshToken });
       }
     } catch (error) {
       if (error.isJoi === true) error.status = 422;
@@ -48,7 +47,7 @@ module.exports = {
       const accessToken = await signAccessToken(user.id);
       const refreshToken = await signRefreshToken(user.id);
 
-      res.send({ accessToken, refreshToken });
+      res.json({ accessToken, refreshToken });
     } catch (error) {
       if (error.isJoi === true)
         return next(createError.BadRequest("Invalid Username/Password"));
@@ -64,7 +63,7 @@ module.exports = {
 
       const accessToken = await signAccessToken(userId);
       const refToken = await signRefreshToken(userId);
-      res.send({ accessToken: accessToken, refreshToken: refToken });
+      res.json({ accessToken: accessToken, refreshToken: refToken });
     } catch (error) {
       next(error);
     }
@@ -81,7 +80,7 @@ module.exports = {
           throw createError.InternalServerError();
         }
         console.log(val);
-        res.sendStatus(204);
+        res.jsonStatus(204);
       });
     } catch (error) {
       next(error);
