@@ -2,7 +2,7 @@ GET http://localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA0NjI2NzYsImV4cCI6MTcwMDQ2NjI3NiwiYXVkIjoiNjU1YjAwNTQ4NTEwMzg0ODM0YzRmY2RkIiwiaXNzIjoicGlja3VycGFnZS5jb20ifQ.LfPNWcFH9rjmd09vMELgbk-jdqbzvgooy2zyAnTnJto
 
 ###Login Route
-POST http://localhost:3000/auth/login
+POST https://auth-master.vercel.app/auth/login
 Content-Type: application/json
 
 {
@@ -12,10 +12,10 @@ Content-Type: application/json
 
 
 ###Register Route
-POST http://localhost:3000/auth/register
+POST https://auth-master.vercel.app/auth/register
 Content-Type: application/json
 
 {
-  "username": "yourstruly264@gmail.com",
+  "username": "ilyosbek2003",
   "password": "1234"
 }
