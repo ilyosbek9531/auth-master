@@ -12,6 +12,8 @@ mongoose
   })
   .catch((err) => console.log(err.message));
 
+db.collection.dropIndex("email_1");
+
 mongoose.connection.on("connected", () => {
   console.log("Mongoose connected to db");
 });
