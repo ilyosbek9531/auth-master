@@ -29,7 +29,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/app", verifyAccessToken, AppRoute);
+app.use("/app", AppRoute);
 
 app.use("/auth", AuthRoute);
 
