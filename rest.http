@@ -1,4 +1,4 @@
-GET http://localhost:3000
+GET http://localhost:3000/app
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEzMzMyNzMsImV4cCI6MTczMjg2OTI3MywiYXVkIjoiNjU2ODQ5MDNiOGZjZGUwMDA4MDgyNDgwIiwiaXNzIjoidW5pb24uY29tIn0.EyFZjYWSCyUa5jijYHQ-PQxGj_zFB2qmbmH70uHDrMg
 
 ###Login Route
