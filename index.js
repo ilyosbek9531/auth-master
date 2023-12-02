@@ -9,6 +9,9 @@ const AuthRoute = require("./Routes/Auth.route");
 const AppRoute = require("./Routes/App.route");
 
 const app = express();
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // CORS middleware
 app.use((req, res, next) => {
@@ -25,11 +28,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(morgan("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use("/books", (req, res, next) => {
+  res.json("books");
+});
 
-app.use("/app", AppRoute);
+app.use("/app", verifyAccessToken, AppRoute);
 
 app.use("/auth", AuthRoute);
 
