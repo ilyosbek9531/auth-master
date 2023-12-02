@@ -6,6 +6,7 @@ require("./helpers/init_mongodb");
 const { verifyAccessToken } = require("./helpers/jwt_helper");
 
 const AuthRoute = require("./Routes/Auth.route");
+const AppRoute = require("./Routes/App.route");
 
 const app = express();
 app.use(morgan("dev"));
@@ -27,14 +28,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/books", (req, res) => {
-  res.json("this is books");
-});
+// verified routes
+app.use("/apps", verifyAccessToken, AppRoute);
 
-app.get("/", verifyAccessToken, async (req, res, next) => {
-  res.json("Hello from express.");
-});
-
+// Auth router
 app.use("/auth", AuthRoute);
 
 app.use(async (req, res, next) => {

@@ -1,12 +1,12 @@
 GET http://localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA0NjI2NzYsImV4cCI6MTcwMDQ2NjI3NiwiYXVkIjoiNjU1YjAwNTQ4NTEwMzg0ODM0YzRmY2RkIiwiaXNzIjoicGlja3VycGFnZS5jb20ifQ.LfPNWcFH9rjmd09vMELgbk-jdqbzvgooy2zyAnTnJto
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDEzMzMyNzMsImV4cCI6MTczMjg2OTI3MywiYXVkIjoiNjU2ODQ5MDNiOGZjZGUwMDA4MDgyNDgwIiwiaXNzIjoidW5pb24uY29tIn0.EyFZjYWSCyUa5jijYHQ-PQxGj_zFB2qmbmH70uHDrMg
 
 ###Login Route
 POST https://auth-master.vercel.app/auth/login
 Content-Type: application/json
 
 {
-  "username": "jhondoe@gmail.com",
+  "username": "ilyosbek2003",
   "password": "1234"
 }
 
@@ -16,6 +16,6 @@ POST https://auth-master.vercel.app/auth/register
 Content-Type: application/json
 
 {
-  "username": "ilyosbek2003",
+  "username": "ilyosbek2004",
   "password": "1234"
 }
