@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 // verified routes
-app.use("/books", verifyAccessToken, (req, res, next) => {
+app.get("/books", verifyAccessToken, (req, res, next) => {
   res.json("booksssss");
 });
 
