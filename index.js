@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/books", (req, res, next) => {
+app.get("/books", (req, res, next) => {
   res.json("books");
 });
 
