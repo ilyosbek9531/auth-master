@@ -31,6 +31,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", verifyAccessToken, (req, res) => {
+  res.json("hello world");
+});
+
 app.use("/app", verifyAccessToken, AppRoute);
 
 app.use("/auth", AuthRoute);
